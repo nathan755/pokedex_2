@@ -1,7 +1,4 @@
-// React crap
 import React, { Component } from "react";
-//Components
-import TopNav from "./top-navigation";
 
 class Home extends Component {
     constructor(props){
@@ -13,7 +10,7 @@ class Home extends Component {
     render(){
         return(
             <div>
-                <TopNav />
+                <h1>Hello Home</h1>
             </div>
         )
     }
