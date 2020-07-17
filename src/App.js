@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch,Route,} from "react-router-dom";
+import "./sass/core.scss";
 import Home from "./components/home";
 
 class App extends Component {
