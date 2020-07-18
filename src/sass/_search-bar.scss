@@ -1,0 +1,25 @@
+.search-bar {
+    border-bottom: solid 0.5px #cccccc;
+    height: 30px;
+    margin:24px 18px;
+    position: relative;
+    background-image: url(/public/images/search.svg);
+    &.focus{
+        border-bottom: 2px solid $purple;
+    }
+    & input {
+        background-color: $background-colour;
+        border: none;
+        margin-left:6px;
+        padding: 0;
+        position: absolute;
+        bottom: 6px;
+
+        &:focus{
+            outline: none;
+        }
+        &::placeholder{
+            font-size: 1.3em;
+        }
+    }
+}
