@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SearchIcon from "./search-icon";
 
 class SearchBar extends Component {
     constructor(props){
@@ -50,6 +51,7 @@ class SearchBar extends Component {
         return(
             <div onClick={this.onInputClick} ref={this.setWrapperRef} className={`search-bar ${this.state.focus && "focus"}`}>
                 <input id="search" placeholder="Search For Pokémon" onChange={this.onInputChange} value={this.state.value} />
+                <i class="fas fa-search"></i>
             </div>
         )
     }
