@@ -14,7 +14,7 @@ class TopNavigation extends Component {
     
     render(){
         return(
-            <div className={`top-nav ${this.props.sideNavIsOpen && "open"}`}>
+            <div className={`top-nav`}>
                 <div onClick={this.onHamburgerClick} className="top-nav__hamburger">
                      <i class="fas fa-bars"></i>
                 </div>

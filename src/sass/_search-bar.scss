@@ -1,0 +1,36 @@
+.search-bar {
+    border-bottom: solid 0.5px #cccccc;
+    height: 30px;
+    margin:24px 18px;
+    position: relative;
+    
+    & i {
+        float: right;
+        margin-right: 6px;
+        position: relative;
+        top:12px;
+        color: #cccccc;
+    }
+    
+    &.focus{
+        border-bottom: 2px solid $purple;
+        & i{
+            color: $purple;
+        }
+    }
+    & input {
+        background-color: $background-colour;
+        border: none;
+        margin-left:6px;
+        padding: 0;
+        position: absolute;
+        bottom: 6px;
+
+        &:focus{
+            outline: none;
+        }
+        &::placeholder{
+            font-size: 1.3em;
+        }
+    }
+}

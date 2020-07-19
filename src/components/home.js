@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // Components
 import TopNav from "./top-navigation";
 import SideNav from "./side-nav";
+import SearchBar from "./search-bar";
 
 class Home extends Component {
     constructor(props){
@@ -26,9 +27,10 @@ class Home extends Component {
 
     render(){
         return(
-            <div>
+            <div className={`home ${this.state.sideNavIsOpen && "open"}`}>
                 <TopNav sideNavIsOpen={this.state.sideNavIsOpen} onClick={this.sideNavToggler} />
                 <SideNav sideNavIsOpen={this.state.sideNavIsOpen} />
+                <SearchBar />
             </div>
         )
     }
