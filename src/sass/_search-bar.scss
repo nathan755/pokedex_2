@@ -3,9 +3,20 @@
     height: 30px;
     margin:24px 18px;
     position: relative;
-    background-image: url(/public/images/search.svg);
+    
+    & i {
+        float: right;
+        margin-right: 6px;
+        position: relative;
+        top:12px;
+        color: #cccccc;
+    }
+    
     &.focus{
         border-bottom: 2px solid $purple;
+        & i{
+            color: $purple;
+        }
     }
     & input {
         background-color: $background-colour;
