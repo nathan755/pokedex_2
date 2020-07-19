@@ -27,7 +27,7 @@ class Home extends Component {
 
     render(){
         return(
-            <div>
+            <div className={`home ${this.state.sideNavIsOpen && "open"}`}>
                 <TopNav sideNavIsOpen={this.state.sideNavIsOpen} onClick={this.sideNavToggler} />
                 <SideNav sideNavIsOpen={this.state.sideNavIsOpen} />
                 <SearchBar />
