@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import {Link} from "react-router-dom";
 
  class PokemonCard extends Component {
      constructor(props){
@@ -71,7 +72,7 @@ import Axios from "axios";
          return(
              <div className="pokemon-card">
                 <this.renderBackgroundDivs />
-                  <img src={this.state.PokemonImg}/>
+                 <Link to="/pokemon/bulbasaur?pokemon=bulbasaur"> <img src={this.state.PokemonImg}/>  </Link> 
                   <div className="pokemon-card__name">
                     <p>{this.state.pokemonName}</p>
                   </div>
