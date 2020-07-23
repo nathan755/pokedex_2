@@ -1,0 +1,29 @@
+.pokemon-stat-view {
+    height: 100vh;
+    position: relative;
+    &__left {
+        @include fiftyFifty;
+        background-color: #F08030;
+    }
+
+    &__right {
+        @include fiftyFifty;
+        background-color: #98D8D8 ;
+    }
+
+    &__stats {
+        background-color: white;
+        position: absolute;
+        height: 90%;
+        z-index: 5;
+        width: 30%;
+        overflow-y:scroll;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        
+
+
+    }
+
+}
