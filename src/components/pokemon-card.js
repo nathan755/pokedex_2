@@ -72,7 +72,10 @@ import Axios from "axios";
              <div className="pokemon-card">
                 <this.renderBackgroundDivs />
                   <img src={this.state.PokemonImg}/>
-                <p>{this.state.pokemonName}</p>
+                  <div className="pokemon-card__name">
+                    <p>{this.state.pokemonName}</p>
+                  </div>
+                
              </div>
          )
      }

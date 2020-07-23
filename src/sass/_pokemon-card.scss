@@ -1,3 +1,46 @@
 .pokemon-card {
-    width: 200px;
+    width: 180px;
+    margin: 12px;
+    position: relative;
+    box-shadow: 3px 5px 4px #888888;
+    &:hover{
+        opacity: 0.8;
+    }
+
+    &__background{
+        height: 100%;;
+    }
+
+    & img{
+        z-index: 5;
+        position: relative;
+        bottom: 150px;
+    }
+
+    &__name{
+        background-color: black;
+        z-index: 5;
+        position: relative;
+        bottom: 136px;
+        opacity: 0.5;
+        & p {
+            position: relative;
+            z-index: 6;
+            color: white;
+            opacity: 1;
+        }
+    }
+    
+    &__left{
+        height: 100%;
+        width: 50%;
+        display: inline-block;
+    }
+
+    &__right {
+        height: 100%;
+        width: 50%;
+        display: inline-block;
+    }
+
 }

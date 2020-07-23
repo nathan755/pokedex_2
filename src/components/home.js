@@ -26,7 +26,7 @@ class Home extends Component {
     
 
     componentDidMount(){
-        Axios.get("https://pokeapi.co/api/v2/pokemon?limit=964").then((res =>{
+        Axios.get("https://pokeapi.co/api/v2/pokemon?limit=121").then((res =>{
             
             this.setState({
                 pokemonData:res.data.results,
