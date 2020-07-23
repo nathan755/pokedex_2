@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import TopNav from "./top-navigation";
 import SideNav from "./side-nav";
 import SearchBar from "./search-bar";
-import {getAllPokemon, getInitialPokeData} from "../utils/request";
+
 
 import Axios from "axios";
 import PokemonCard from "./pokemon-card";
