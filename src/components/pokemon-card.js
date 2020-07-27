@@ -72,7 +72,7 @@ import {Link} from "react-router-dom";
          return(
              <div className="pokemon-card">
                 <this.renderBackgroundDivs />
-                 <Link to="/pokemon/bulbasaur?pokemon=bulbasaur"> <img src={this.state.PokemonImg}/>  </Link> 
+                 <Link to={`/pokemon/bulbasaur?pokemon=${this.state.pokemonName}`}> <img src={this.state.PokemonImg}/>  </Link> 
                   <div className="pokemon-card__name">
                     <p>{this.state.pokemonName}</p>
                   </div>
