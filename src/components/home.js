@@ -4,8 +4,6 @@ import React, { Component } from "react";
 import TopNav from "./top-navigation";
 import SideNav from "./side-nav";
 import SearchBar from "./search-bar";
-
-
 import Axios from "axios";
 import PokemonCard from "./pokemon-card";
 
@@ -22,9 +20,7 @@ class Home extends Component {
         this.sideNavToggler = this.sideNavToggler.bind(this);
 
     }
-
     
-
     componentDidMount(){
         Axios.get("https://pokeapi.co/api/v2/pokemon?limit=121").then((res =>{
             
@@ -33,9 +29,6 @@ class Home extends Component {
                 loading:false
             })
         }))
-
-
- 
     }
 
     sideNavToggler(){
