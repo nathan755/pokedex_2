@@ -1,0 +1,49 @@
+.stats {
+    display: flex;
+
+    &__types {
+        display: flex;
+    }
+
+    &__bars {
+        flex: auto;
+        &__bar {
+            display: flex;
+            height: 24px;
+            margin-left:6px ;
+            
+        }
+        &__types {
+            display: flex;
+            align-items: center;
+            & h3 {
+                margin-left: auto;
+                margin-right:18px;
+                font-size: 2rem;
+                font-weight: lighter;      
+            }
+
+            & span{
+                height: 18px;
+                text-align: center;
+                color: white;
+                text-transform: uppercase;
+                
+                padding: 6px;
+                margin: 6px;
+                font-weight: 900;
+            }
+        }
+        
+    }
+    
+    &__image{
+        align-self: center;
+        & img {
+            height:150px;
+           
+        }
+    }
+
+
+}
