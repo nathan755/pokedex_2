@@ -3,12 +3,40 @@
     position: relative;
     &__left {
         @include fiftyFifty;
-        background-color: #F08030;
+        
     }
+
+    &__background {
+        height: 100%;
+    }
+
+    &__back {
+        border-radius: 50%;
+        position:absolute;
+        margin-top: 12px;
+        margin-left: 12px;
+        padding: 6px;
+        z-index: 12;
+        &:hover{
+            // background-color: black;
+            // opacity: 0.1;
+            //hmm
+           
+        }
+        & i {
+            
+            
+            font-size: 1.4rem;
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+
 
     &__right {
         @include fiftyFifty;
-        background-color: #98D8D8 ;
+        
     }
 
     &__stats {
@@ -16,11 +44,25 @@
         position: absolute;
         height: 90%;
         z-index: 5;
-        width: 30%;
+        max-width: 30%;
+        width: 100%;
         overflow-y:scroll;
         top: 70%;
         left: 50%;
         transform: translate(-50%, -70%);
+        &__header {
+            text-align: center;
+            background-color: grey;
+            
+            & h1 {
+               margin: 0;
+               padding: 12px;
+               color: white;
+
+            
+            }
+        }
+        
         
 
 
