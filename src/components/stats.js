@@ -12,11 +12,23 @@ class Stats extends Component {
         
         return (
             this.props.stats.map((stat)=> {
+                
+                // Set the colour to be index one
+                const colour = "#"+this.props.colours[this.props.types[0].type.name]
+                const width = stat.base_stat + 50
+                console.log("width", width+50)
+                
+
+
                 return(
                     <div className="stats__bars__bar">
-                        <p>{stat.stat.name}</p>
+                        <p className="name">{stat.stat.name}</p>
                         
-                            <p>{stat.base_stat}</p>
+                        <div className="stat-wrapper">
+                            <p style={{backgroundColor:colour , width:width}} className="stat">{stat.base_stat}</p>
+                        </div>
+                        
+                        
                        
                         
                     </div>
