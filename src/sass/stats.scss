@@ -5,6 +5,19 @@
         display: flex;
     }
     
+    &__about {
+        margin-left: 24px;
+        margin-right: 24px;
+
+        & h4 {
+            margin-bottom: 0;
+        }
+
+        & p {
+            margin-top: 6px;
+        }
+    }
+    
     &__bars {
         flex: auto;
         &__bar {
@@ -12,8 +25,6 @@
             padding: 0;
             margin-right: 75px;
             margin-left:6px;
-
-            & p {}
             
             & .name {
                 flex: 1;
@@ -34,8 +45,6 @@
                     align-self: center;
                     padding-left: 6px;
                     color: white;
-                    
-                    
                 }
             }
         }
