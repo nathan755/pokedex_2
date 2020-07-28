@@ -103,7 +103,7 @@ class PokemonStatView extends Component{
                          <h1 >{this.state.name}</h1>
                          
                     </div>
-                    <Stats image={this.state.image} types={this.state.types} colours={this.pokeColours} order={this.state.order} stats={this.state.stats} />
+                    <Stats name={this.state.name} image={this.state.image} types={this.state.types} colours={this.pokeColours} order={this.state.order} stats={this.state.stats} />
                 </div>
                 <this.renderBackgroundDivs />
                 
