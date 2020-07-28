@@ -15,7 +15,7 @@ class Stats extends Component {
                 
                 // Set the colour to be index one
                 const colour = "#"+this.props.colours[this.props.types[0].type.name]
-                const width = stat.base_stat + 50
+                const width = stat.base_stat + 25
                 console.log("width", width+50)
                 
 
