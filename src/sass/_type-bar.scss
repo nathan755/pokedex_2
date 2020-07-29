@@ -1,0 +1,18 @@
+.type-bar{
+    display: flex;
+    align-items: center;
+    
+    &__type{
+        font-size: 1.1em;
+        text-transform: uppercase;
+        font-weight: 900;
+        flex-basis: 80%;
+        padding: 3px;
+        color: white;
+    }
+
+    &__multiplier{
+        flex-basis: 20%;
+        margin-left: 12px;
+    }
+}
