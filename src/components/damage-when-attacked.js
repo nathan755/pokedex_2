@@ -41,47 +41,61 @@ class DamageWhenAttacked extends Component {
             const typeOneDoubleDamageValues =  this.state.typesData[0].data.damage_relations.double_damage_from.map( type  => ({name:type.name,multiplier:"2x"}) )
             const typeOneHalfDamageValues =  this.state.typesData[0].data.damage_relations.half_damage_from.map( type  => ({name:type.name,multiplier:"0.5x"}) )
             const typeOneNoDamageValues = this.state.typesData[0].data.damage_relations.no_damage_from.map( type  => ({name:type.name,multiplier:"0x"}) )
-            console.log("double", typeOneDoubleDamageValues)
-            console.log("half", typeOneHalfDamageValues)
-            console.log("no", typeOneNoDamageValues)
+     
             
             if(this.state.typesData.length !== 1){
                 // If the pokemon has two types populate below arrays with their damage multipliers.
-                let typeTwoDoubleDamageValues =  this.state.typesData[1].data.damage_relations.double_damage_from.map( type  => type.name )
-                const typeTwoHalfDamageValues =  this.state.typesData[1].data.damage_relations.half_damage_from.map( type  => type.name )
-                const typeTwoNoDamageValues = this.state.typesData[1].data.damage_relations.no_damage_from.map( type  => type.name )
-                console.log("2double", typeTwoDoubleDamageValues)
-                console.log("2half", typeTwoHalfDamageValues)
-                console.log("2no", typeTwoNoDamageValues)
-
+                let typeTwoDoubleDamageValues =  this.state.typesData[1].data.damage_relations.double_damage_from.map( type  => ({name:type.name, multiplier:"2x"}) )
+                let typeTwoHalfDamageValues =  this.state.typesData[1].data.damage_relations.half_damage_from.map( type  =>  ({name:type.name, multiplier:"0.5x"}) )
+                let typeTwoNoDamageValues = this.state.typesData[1].data.damage_relations.no_damage_from.map( type  =>  ({name:type.name, multiplier:"0x"}) )
+                let  quadDamageValues = [];
                 
-               let  quadDamageValues = []
-              
+                // If either type recieves no damage pokemon is immune.
+                const  filtered = typeOneNoDamageValues.filter(type=> !typeTwoNoDamageValues.includes(type.name));
+                const noDamageValues = [...filtered, ...typeTwoNoDamageValues];
+                // If type 1 and type 2 are both resistent i.e they receive only half damage, then the damage multiplier is 0.25.
+                const quarterDamageValues = []
+                console.log("typeOneHalfDamageValues",typeOneHalfDamageValues)
+                console.log("typeTwoHalfDamageValues",typeTwoHalfDamageValues)
+                typeOneHalfDamageValues.forEach((type) => {
+                    console.log("half")
+                    const inBoth = typeTwoHalfDamageValues.some(item => item.name === type.name)
 
-                typeOneDoubleDamageValues.forEach((type)=>{
-                    if(typeTwoDoubleDamageValues.includes(type.name)){
-                        // if type.name occurs in both arrays add to quad damage array
-                        quadDamageValues.push({name:type.name, multiplier:"4x"})
+                   
 
-                        // remove this specific type from double damage array because it now deals quad damage.
-                        const index = typeTwoDoubleDamageValues.indexOf(type.name)
-                        typeTwoDoubleDamageValues.splice(index,1)
-
+                    if(inBoth){
+                        console.log("hello")
+                        quarterDamageValues.push({name:type.name, multiplier:"0.25x"})
                         
-
+                        const index = typeTwoHalfDamageValues.map(e => e.name).indexOf(type.name);
+                        console.log("index", index)
+                        typeTwoHalfDamageValues.splice(index,1)
                     }
                 })
+               
+                
+                typeOneDoubleDamageValues.forEach((type)=>{
+                    const inBoth = typeTwoDoubleDamageValues.some(item => item.name === type.name)
+                    if(inBoth){
+                       
+                        quadDamageValues.push({name:type.name, multiplier:"4x"})
+                        
+                        const index = typeTwoDoubleDamageValues.map(e => e.name).indexOf(type.name);
+                   
+                        typeTwoDoubleDamageValues.splice(index,1)
+                    }
+                })
+                
+                const allTypeDamageMultipliers = [...quadDamageValues, ...typeTwoDoubleDamageValues, ...typeTwoHalfDamageValues, ...quarterDamageValues, ...noDamageValues]
+                
 
-                console.log("quad values", quadDamageValues)
-                console.log("dub values", typeTwoDoubleDamageValues)
-
-
-
-
-                return null
-
-
-
+                return (
+                    <div>
+                        {
+                            allTypeDamageMultipliers.map(type=><TypeBar type={type.name} multiplier={type.multiplier} colour={"#"+this.props.colours[type.name]} />)
+                        }
+                    </div>
+                )
             }
 
         
@@ -89,67 +103,7 @@ class DamageWhenAttacked extends Component {
 
 
             
-            //  const typeOne = this.state.typesData[0].data.name
-             
-            //  const typeOneDoubleDamageFrom = this.state.typesData[0].data.damage_relations.double_damage_from;
-            //  const typeOneHalfDamageFrom = this.state.typesData[0].data.damage_relations.half_damage_from;
-            //  const noDamageFrom = this.state.typesData[0].data.damage_relations.no_damage_from;
-             
-             
-            // const oneDoubleDamage = typeOneDoubleDamageFrom.map((type)=>{
-            //     return <TypeBar type={type.name} showChevron={false} multiplier="2x" colour={"#"+this.props.colours[type.name]} />
-            // })
 
-            // const oneHalfDamage = typeOneHalfDamageFrom.map((type)=>{
-            //     return <TypeBar type={type.name} showChevron={false} multiplier="0.5x" colour={"#"+this.props.colours[type.name]} />
-            // })
-
-            // const noDamage = noDamageFrom.map((type)=>{
-            //     return <TypeBar type={type.name} showChevron={false} multiplier="0x" colour={"#"+this.props.colours[type.name]} />
-            // })
-             
-             
-             
-             
-             
-             
-            //  const typebars = [...oneDoubleDamage, ...oneHalfDamage, ...noDamage]
-            //  console.log("typebars", typebars)
-              
- 
-        
- 
-            // if(this.state.typesData.length !== 1 ){
-            //     const typeTwoDoubleDamageFrom = this.state.typesData[1].data.damage_relations.double_damage_from;
-            //     const typeTwoHalfDamageFrom = this.state.typesData[1].data.damage_relations.half_damage_from;
-            //     const typeTwoNoDamageFrom = this.state.typesData[1].data.damage_relations.no_damage_from;
-
-               
-
-
-            //     console.log("dubs", typeTwoDoubleDamageFrom)
-            //     console.log("half", typeTwoHalfDamageFrom)
-            //     console.log("no", typeTwoNoDamageFrom)
-                
-            //     const quadDamage = typeTwoDoubleDamageFrom.map((type, index) => {
-                    
-            //     })
-
-
-
-
-
-            // }
-            //  return(
-            //     <div>
-            //         {
-            //          typebars.map((type)=>{
-            //              return type
-            //          })
-            //         }
-            //     </div>
-            //  )
-            
  
  
  
