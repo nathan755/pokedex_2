@@ -22,7 +22,7 @@ class Profile extends Component {
     componentDidUpdate(prevProps){
         if(prevProps.name !== this.props.name){
             Axios.get(`https://pokeapi.co/api/v2/pokemon-species/${this.props.name}/`).then((response)=>{
-                console.log("nathan", response.data)
+                
                 this.setState({
                     genderRatio:response.data.gender_rate, // The chance of this Pokémon being female, in eighths; or -1 for genderless.
                     hatchSteps:response.data.hatch_counter, // Initial hatch counter: one must walk 255 × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's.
@@ -38,7 +38,7 @@ class Profile extends Component {
 
 
     render(){
-        console.log("abs", this.props.stats)
+        
         return(
             <div className="profile">
                 <div className="profile__container">
