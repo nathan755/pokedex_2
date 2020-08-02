@@ -4,6 +4,7 @@ import Stats from "./stats";
 import {LightenDarkenColor} from "../utils/helpers";
 import HeaderBar from "./header-bar";
 import Profile from "./profile";
+import DamageWhenAttacked from "./damage-when-attacked";
 
 /**Overall pokemon stats component. Component gets data and passes it down to smaller components */
 class PokemonStatView extends Component{
@@ -108,8 +109,9 @@ class PokemonStatView extends Component{
                     <Stats name={this.state.name} image={this.state.image} types={this.state.types} colours={this.pokeColours} order={this.state.order} stats={this.state.stats} />
                     <HeaderBar header="Profile" colour={"#"+this.state.darkPrimaryColour} />
                     <Profile name={this.state.name} height={this.state.height} weight={this.state.weight} abilities={this.state.abilities} stats={this.state.stats}  />
+                    <HeaderBar header="Damage When Attacked" colour={"#"+this.state.darkPrimaryColour} />
+                    <DamageWhenAttacked types={this.state.types} colours={this.pokeColours} />
                 </div>
-                
                 <this.renderBackgroundDivs />
               
 
