@@ -53,12 +53,9 @@ class PokemonStatView extends Component{
     componentDidMount(){
         // get pokemon's name from the query params and make request with that.
         const pokemonName = this.props.location.search.split("=")[1];
-        console.log("pokemonName", pokemonName)
+        
 
         Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response)=>{
-            console.log("res", response)
-            console.log("yo",this.pokeColours[response.data.types[0].type.name])
-
             this.setState({
                 name:response.data.name,
                 stats:response.data.stats,
@@ -111,6 +108,7 @@ class PokemonStatView extends Component{
                     <Profile name={this.state.name} height={this.state.height} weight={this.state.weight} abilities={this.state.abilities} stats={this.state.stats}  />
                     <HeaderBar header="Damage When Attacked" colour={"#"+this.state.darkPrimaryColour} />
                     <DamageWhenAttacked types={this.state.types} colours={this.pokeColours} />
+                    <HeaderBar header="Evolutions" colour={"#"+this.state.darkPrimaryColour} />
                 </div>
                 <this.renderBackgroundDivs />
               
