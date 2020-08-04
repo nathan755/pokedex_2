@@ -110,7 +110,7 @@ class PokemonStatView extends Component{
                     <HeaderBar header="Damage When Attacked" colour={"#"+this.state.darkPrimaryColour} />
                     <DamageWhenAttacked types={this.state.types} colours={this.pokeColours} />
                     <HeaderBar header="Evolutions" colour={"#"+this.state.darkPrimaryColour} />
-                    <Evolutions />
+                    <Evolutions name={this.state.name} />
                 </div>
                 <this.renderBackgroundDivs />
               
