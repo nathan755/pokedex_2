@@ -87,22 +87,19 @@ class DamageWhenAttacked extends Component {
         const noDamageValues = [...filtered, ...typeTwoNoDamageValues];
         // If type 1 and type 2 are both resistent i.e they receive only half damage, then the damage multiplier is 0.25.
         const quarterDamageValues = [];
-        console.log("typeOneHalfDamageValues", typeOneHalfDamageValues);
-        console.log("typeTwoHalfDamageValues", typeTwoHalfDamageValues);
+
         typeOneHalfDamageValues.forEach((type) => {
-          console.log("half");
           const inBoth = typeTwoHalfDamageValues.some(
             (item) => item.name === type.name
           );
 
           if (inBoth) {
-            console.log("hello");
             quarterDamageValues.push({ name: type.name, multiplier: "0.25x" });
 
             const index = typeTwoHalfDamageValues
               .map((e) => e.name)
               .indexOf(type.name);
-            console.log("index", index);
+
             typeTwoHalfDamageValues.splice(index, 1);
           }
         });

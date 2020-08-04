@@ -38,9 +38,9 @@ import {Link} from "react-router-dom";
      }
 
     componentDidMount(){
-        console.log("here")
+        
         Axios.get(this.props.url).then((response)=>{
-            console.log("respones in child", response.data)
+            
             
             this.setState({
                 pokemonName:response.data.name,
