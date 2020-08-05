@@ -38,7 +38,6 @@ class Evolutions extends Component {
                     }
                     
                     Promise.all(requests).then((response)=>{
-                        console.log("response", response)
                         this.setState({
                             loading:false,
                             evolutionChain:response
