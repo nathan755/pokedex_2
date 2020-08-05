@@ -6,6 +6,7 @@ import HeaderBar from "./header-bar";
 import Profile from "./profile";
 import DamageWhenAttacked from "./damage-when-attacked";
 import Evolutions from "./evolutions";
+import Moves from "./moves";
 
 /**Overall pokemon stats component. Component gets data and passes it down to smaller components */
 class PokemonStatView extends Component{
@@ -111,6 +112,8 @@ class PokemonStatView extends Component{
                     <DamageWhenAttacked types={this.state.types} colours={this.pokeColours} />
                     <HeaderBar header="Evolutions" colour={"#"+this.state.darkPrimaryColour} />
                     <Evolutions name={this.state.name} />
+                    <HeaderBar header="Moves" colour={"#"+this.state.darkPrimaryColour} />
+                    <Moves pokeColours={this.pokeColours} name={this.state.name} />
                 </div>
                 <this.renderBackgroundDivs />
               
