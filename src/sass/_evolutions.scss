@@ -1,3 +1,16 @@
 .evolutions {
     display: flex;
+    justify-content: space-evenly;
+    color: black;
+    position: relative;
+    &__link{
+        
+        & h4 {
+            display: block;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+    }
+
+
 }

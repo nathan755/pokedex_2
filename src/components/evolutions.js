@@ -52,33 +52,33 @@ class Evolutions extends Component {
     renderEvolutionChain(){
         if(!this.state.loading){
             return(
-                <div className="evolutions">
+                <>
                     {this.state.evolutionChain.map((pokemon)=>{
                         return(
                             <>
-                            <h1>{pokemon.data.name}</h1>
-                            <img src={pokemon.data.sprites.front_default}/>
+                            <div className="evolutions__link">
+                                <img src={pokemon.data.sprites.front_default}/>
+                                <h4>{pokemon.data.name}</h4>
+                                
+                            </div>
+                            
                             </>
                         )
                     })}
-                </div>
+                </>
             )
         }
         return null
     }
-
-
+    
     render(){
         
-       
         return(
             <div className="evolutions">
                 <this.renderEvolutionChain />
             </div>
         )
     }
-
-
 }
 
 export default Evolutions;
