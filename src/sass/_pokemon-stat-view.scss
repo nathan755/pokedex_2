@@ -36,11 +36,13 @@
     }
 
     &__stats {
+        margin:6px;
         background-color: white;
+        margin-left:0px;
         position: absolute;
         height: 90%;
         z-index: 5;
-        max-width: 30%;
+        max-width: 600px;
         width: 100%;
         overflow-y:scroll;
         top: 70%;

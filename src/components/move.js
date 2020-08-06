@@ -47,11 +47,14 @@ class Move extends Component {
     render(){
         if(!this.state.loading){
             return(
+                <>
                 <div className={`move ${this.state.showDetails === true ? "open": "closed"}`}>
                     <p>{this.state.name }</p>
                     <TypeBar onClick={this.onChevronClick} showChevron={true} type={this.state.type} colour={"#"+this.props.pokeColours[this.state.type ]} />
-                    {this.state.showDetails === true && <MoveDetail pp={this.state.pp} power={this.state.power} detail={this.state.detail} accuracy={this.state.accuracy} /> }
+                    
                 </div>
+                {this.state.showDetails === true && <MoveDetail pp={this.state.pp} power={this.state.power} detail={this.state.detail} accuracy={this.state.accuracy} /> }
+                </>
             )
         }
         return null

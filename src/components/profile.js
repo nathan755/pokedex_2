@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from "react";
 import Axios from "axios";
-
 class Profile extends Component {
     constructor(props){
         super(props)
@@ -15,10 +14,8 @@ class Profile extends Component {
                 hatchSteps:"",
                 stats:"",
             }
-
+        }
         
-    }
-
     componentDidUpdate(prevProps){
         if(prevProps.name !== this.props.name){
             Axios.get(`https://pokeapi.co/api/v2/pokemon-species/${this.props.name}/`).then((response)=>{
@@ -33,10 +30,7 @@ class Profile extends Component {
             })
         }
     }
-
-
-
-
+    
     render(){
         
         return(
@@ -77,12 +71,9 @@ class Profile extends Component {
                         <span>fix later</span> 
                     </div>
                 </div>
-                    
-                    
             </div>
         )
     }
-
 }
 
 export default Profile;

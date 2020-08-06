@@ -27,8 +27,9 @@ class SearchBar extends Component {
     
     onInputChange(event){
         // Call parent on change function and pass event up.
-        this.setState({value:event.target.value});
+        
         this.props.onChange(event);
+        this.setState({value:event.target.value});
     }
 
     onInputClick(){

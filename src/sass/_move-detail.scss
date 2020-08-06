@@ -1,3 +1,17 @@
-.move-detail {
-    display: flex;
+
+.move-detail-wrapper {
+    & p {
+        margin:6px;
+    }
+    background-color: $background-colour;
+    margin-left: 30px;
+    margin-top: 6px;
+    margin-bottom:6px;
+    margin-right: 54px;
+    padding: 6px;
+    .move-detail {
+        display: flex;
+      
+    }
+
 }

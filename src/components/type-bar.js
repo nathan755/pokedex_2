@@ -3,13 +3,10 @@ import React, { Component } from "react";
 class TypeBar extends Component {
     constructor(props){
         super(props)
-        
-        this.state = {}
     }
-
-
+    
     render(){
-        console.log("this", this.props.type)
+        
         return(
             <div className="type-bar">
                 <div style={{backgroundColor:this.props.colour}} className="type-bar__type">

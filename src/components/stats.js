@@ -13,18 +13,13 @@ class Stats extends Component {
         this.renderStatBars = this.renderStatBars.bind(this);
 
     }
-
-    componentDidMount(){
-        
-        
-    }
-
+    
     componentDidUpdate(prevProps){
         if(this.props.name !== prevProps.name){
             Axios.get(`https://pokeapi.co/api/v2/pokemon-species/${this.props.name}`).then((res)=> {
                 
                 //Remove crap from string
-                const about = res.data.flavor_text_entries[0].flavor_text.replace(/(\r\n|\n|\r|\f)/gm," ");
+            const about = res.data.flavor_text_entries[0].flavor_text.replace(/(\r\n|\n|\r|\f)/gm," ");
             this.setState({
                 genus:res.data.genera[7].genus,
                 pokemonAbout:about
@@ -41,9 +36,7 @@ class Stats extends Component {
                 // Set the colour to be index one
                 const colour = "#"+this.props.colours[this.props.types[0].type.name]
                 const width = stat.base_stat + 25
-                
-                
-                return(
+            return(
                     <div className="stats__bars__bar">
                         <p className="name">{stat.stat.name}</p>
                         
