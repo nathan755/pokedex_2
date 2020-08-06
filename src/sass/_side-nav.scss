@@ -1,0 +1,39 @@
+.side-nav {
+    background-color: $white;
+    height:100%;
+    position: fixed;
+    top:0;
+    width: 200px;
+    left:-200px;
+    transition: ease-in-out 0.3s;
+
+    &.open {
+        left:0;
+        transition: ease-in-out 0.3s;
+    }
+    
+    &__header{
+        border-bottom: 1px solid $light-grey;
+        height: 65px;
+        display: flex;
+        align-items: center;
+    
+    h2 {
+            font-weight: lighter;
+            margin-left: 12px;
+        }
+    }
+
+    & li {
+        font-weight: 900;
+        padding: 18px;
+        cursor: pointer;
+        &:hover{
+            background-color: #E0E0E0;
+        }
+    }
+
+    & ul {
+        display: inline;
+    }
+}

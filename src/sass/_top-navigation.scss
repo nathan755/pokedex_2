@@ -1,0 +1,27 @@
+.top-nav{
+    background-color: $purple;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    transition: ease-in-out 0.3s;
+    
+    &__hamburger{
+        margin:24px;
+        border-radius: 30px;
+        &:hover{
+            background-color: rgba(0,0,0,.27);
+        }
+    }
+
+    &.open{
+        margin-left: 200px;
+        transition: ease-in-out 0.3s;
+    }
+
+    & i {
+        color: $white;
+        font-size: 1.1em;
+        margin: 6px;
+        cursor: pointer;
+    }
+}

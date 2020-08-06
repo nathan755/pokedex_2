@@ -1,0 +1,9 @@
+.header-bar {
+    margin: 12px;
+    color: white;
+    & h2 {
+        margin-left: 6px;
+        padding: 6px;
+        font-weight: 500;
+    }
+}

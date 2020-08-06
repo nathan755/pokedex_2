@@ -1,0 +1,65 @@
+.pokemon-stat-view {
+    height: 100vh;
+    position: relative;
+    &__left {
+        @include fiftyFifty;
+        
+    }
+
+    &__background {
+        height: 100%;
+    }
+
+    &__back {
+        border-radius: 50%;
+        position:absolute;
+        margin-top: 12px;
+        margin-left: 12px;
+        padding: 6px;
+        z-index: 12;
+        &:hover{
+            // background-color: black;
+            // opacity: 0.1;
+            //hmm
+           
+        }
+        & i {
+            font-size: 1.4rem;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    
+    &__right {
+        @include fiftyFifty;
+        
+    }
+
+    &__stats {
+        margin:6px;
+        background-color: white;
+        margin-left:0px;
+        position: absolute;
+        height: 90%;
+        z-index: 5;
+        max-width: 600px;
+        width: 100%;
+        overflow-y:scroll;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        &__header {
+            text-align: center;
+            background-color: grey;
+            
+            & h1 {
+               margin: 0;
+               padding: 12px;
+               color: white;
+               text-transform: capitalize;
+
+            
+            }
+        }
+    }
+}
