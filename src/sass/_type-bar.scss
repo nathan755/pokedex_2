@@ -3,6 +3,24 @@
     align-items: center;
     margin: 2px;
     
+    & .chevron-holder {
+        
+        width: 27px;
+        height: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 2px grey;
+        &:hover{
+            background-color:$background-colour
+        }
+    }
+    
+    & i {
+        cursor: pointer;
+        color: rgb(51, 51, 51);
+    }
+    
     &__type{
         font-size: 1.1em;
         text-transform: uppercase;
@@ -14,6 +32,6 @@
 
     &__multiplier{
         flex-basis: 20%;
-        margin-left: 12px;
+        margin-left: 6px;
     }
 }

@@ -6,7 +6,6 @@ import SideNav from "./side-nav";
 import SearchBar from "./search-bar";
 import Axios from "axios";
 import PokemonCard from "./pokemon-card";
-
 class Home extends Component {
     constructor(props){
         super(props)
@@ -14,10 +13,13 @@ class Home extends Component {
         this.state = {
             sideNavIsOpen:false,
             pokemonData:[],
-            loading:true
+            loading:true,
+            searchTerm:""
         }
 
         this.sideNavToggler = this.sideNavToggler.bind(this);
+        this.onSearchChange = this.onSearchChange.bind(this);
+        this.renderPokemonCards = this.renderPokemonCards.bind(this);
 
     }
     
@@ -34,31 +36,36 @@ class Home extends Component {
     sideNavToggler(){
         // Handle opening and closing side navigation
         this.setState({sideNavIsOpen:!this.state.sideNavIsOpen});
-        
     }
 
-    renderPokemonCards = () => {
+    onSearchChange(event){
+        this.setState({
+            searchTerm:event.target.value
+        })
+    }
+
+
+    renderPokemonCards(){
+        const searchValue = new RegExp(this.state.searchTerm)
+        const filteredArray = this.state.pokemonData.filter((pokemon)=>  searchValue.test(pokemon.name))
+        
         return(
             <div className="pokemon-card-container">
                 {
-                    this.state.pokemonData.map( pokemon =>  <PokemonCard url={pokemon.url} /> )
+                    filteredArray.map( pokemon =>  <PokemonCard url={pokemon.url} /> )
                 }
             </div>
         )
     }
-
     
-
     render(){
         return(
             <div className={`home ${this.state.sideNavIsOpen && "open"}`}>
                 <TopNav sideNavIsOpen={this.state.sideNavIsOpen} onClick={this.sideNavToggler} />
                 <SideNav sideNavIsOpen={this.state.sideNavIsOpen} />
                 <h1>Pokedex.org Clone</h1>
-                <SearchBar />
+                <SearchBar onChange={this.onSearchChange} />
                 {this.state.loading===false && <this.renderPokemonCards />}
-                
-                
             </div>
         )
     }

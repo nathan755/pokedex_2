@@ -26,5 +26,3 @@ export function LightenDarkenColor(col,amt) {
 }
   
   
-  // TEST
-  console.log( LightenDarkenColor("3F6D2A",40) );

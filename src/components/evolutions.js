@@ -38,7 +38,6 @@ class Evolutions extends Component {
                     }
                     
                     Promise.all(requests).then((response)=>{
-                        console.log("response", response)
                         this.setState({
                             loading:false,
                             evolutionChain:response
@@ -59,9 +58,7 @@ class Evolutions extends Component {
                             <div className="evolutions__link">
                                 <img src={pokemon.data.sprites.front_default}/>
                                 <h4>{pokemon.data.name}</h4>
-                                
                             </div>
-                            
                             </>
                         )
                     })}

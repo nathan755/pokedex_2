@@ -1,0 +1,32 @@
+.move {
+    display: flex;
+    height: 32px;
+    
+    &.open {
+        i {
+            transform: rotate(90deg);
+            transition: ease-in-out 0.2s;
+        }
+    }
+    
+    &.closed {
+        i {
+            transition: ease-in-out 0.2s;
+        }
+    }
+
+    & .type-bar {
+
+        flex-basis: 30%;
+    }
+
+    & p {
+        margin-left: 30px;
+        flex-basis: 55%;
+        text-transform: capitalize;
+    }
+}
+
+.moves {
+    margin-bottom: 50px;
+}

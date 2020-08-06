@@ -6,14 +6,12 @@ import HeaderBar from "./header-bar";
 import Profile from "./profile";
 import DamageWhenAttacked from "./damage-when-attacked";
 import Evolutions from "./evolutions";
-
-/**Overall pokemon stats component. Component gets data and passes it down to smaller components */
+import Moves from "./moves";
+import { Link } from "react-router-dom";
 class PokemonStatView extends Component{
     constructor(props){
         super(props)
-
-         
-
+        
         this.state = {
             abilities:[],
             height:"",
@@ -50,12 +48,11 @@ class PokemonStatView extends Component{
         this.renderBackgroundDivs = this.renderBackgroundDivs.bind(this);
 
     }
-
+    
     componentDidMount(){
         // get pokemon's name from the query params and make request with that.
         const pokemonName = this.props.location.search.split("=")[1];
         
-
         Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response)=>{
             this.setState({
                 name:response.data.name,
@@ -71,8 +68,6 @@ class PokemonStatView extends Component{
             })
         })
     }
-
-    
     
     renderBackgroundDivs(){
         
@@ -96,26 +91,54 @@ class PokemonStatView extends Component{
         return(
             <div className="pokemon-stat-view">
                 <div className="pokemon-stat-view__back">
-                     <i class="fas fa-arrow-left"></i>
+                     <Link to="/home"><i class="fas fa-arrow-left"></i></Link>
                 </div>
              
-                <div  className="pokemon-stat-view__stats">
+                <div className="pokemon-stat-view__stats">
                     <div style={{backgroundColor:"#"+this.state.darkPrimaryColour}} className="pokemon-stat-view__stats__header">
-                         <h1 >{this.state.name}</h1>
-                         
+                        <h1 >{this.state.name}</h1>
                     </div>
-                    <Stats name={this.state.name} image={this.state.image} types={this.state.types} colours={this.pokeColours} order={this.state.order} stats={this.state.stats} />
-                    <HeaderBar header="Profile" colour={"#"+this.state.darkPrimaryColour} />
-                    <Profile name={this.state.name} height={this.state.height} weight={this.state.weight} abilities={this.state.abilities} stats={this.state.stats}  />
-                    <HeaderBar header="Damage When Attacked" colour={"#"+this.state.darkPrimaryColour} />
-                    <DamageWhenAttacked types={this.state.types} colours={this.pokeColours} />
-                    <HeaderBar header="Evolutions" colour={"#"+this.state.darkPrimaryColour} />
-                    <Evolutions name={this.state.name} />
+                    <Stats
+                        name={this.state.name} 
+                        image={this.state.image}
+                        types={this.state.types}
+                        colours={this.pokeColours}
+                        order={this.state.order}
+                        stats={this.state.stats}
+                    />
+                    <HeaderBar 
+                        header="Profile"
+                        colour={"#"+this.state.darkPrimaryColour}
+                    />
+                    <Profile
+                        name={this.state.name}
+                        height={this.state.height}
+                        weight={this.state.weight}
+                        abilities={this.state.abilities}
+                        stats={this.state.stats} 
+                    />
+                    <HeaderBar 
+                        header="Damage When Attacked"
+                        colour={"#"+this.state.darkPrimaryColour} 
+                    />
+                    <DamageWhenAttacked
+                        types={this.state.types}
+                        colours={this.pokeColours} 
+                    />
+                    <HeaderBar 
+                        header="Evolutions" 
+                        colour={"#"+this.state.darkPrimaryColour} 
+                    />
+                    <Evolutions 
+                        name={this.state.name} 
+                    />
+                    <HeaderBar header="Moves"
+                        colour={"#"+this.state.darkPrimaryColour} 
+                     />
+                    <Moves pokeColours={this.pokeColours}
+                        name={this.state.name} />
                 </div>
                 <this.renderBackgroundDivs />
-              
-
-            
             </div>
         )
     }
